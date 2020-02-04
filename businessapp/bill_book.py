@@ -61,7 +61,7 @@ def middleframe(root):
     order_label = Label(middle_frame,text="Order No.",font="arial 12 bold",bg="white")
     order_label.place(x=890,y=50)
 
-    order_entry=Entry(middle_frame,textvariable=orderno,width=20,relief=SOLID)
+    order_entry=Entry(middle_frame,text="",width=20,relief=SOLID)
     order_entry.place(x=970,y=50)
 
     gst_label = Label(middle_frame,text = "Gst No.",font="arial 12 bold",bg="white")
@@ -94,10 +94,12 @@ def thirdframe(root):
 
     headinglabel(third_frame)
     t=30
+    j=1
     for i in range(10):
         col=[]
         no_entry = Entry(third_frame,text='',width=width_list2[0],relief=SOLID)
         no_entry.place(x=x_list[0],y=t)    
+        no_entry.insert(0,int(j))
         col.append(no_entry)
     
         description_entry = Entry(third_frame,text="",width=width_list2[1],relief=SOLID)
@@ -120,12 +122,14 @@ def thirdframe(root):
         gst_entry.place(x=x_list[5],y=t)    
         col.append(gst_entry)
 
+
         amount_entry = Entry(third_frame,text = "",width=width_list2[6],relief=SOLID)
-        amount_entry.place(x=x_list[6],y=t)   
+        amount_entry.place(x=x_list[6],y=t) 
         col.append(amount_entry)
 
         no.append(col)
         t=t+18
+        j+=1
 
 def getvalue():
     for i in range(7):
@@ -154,12 +158,40 @@ def lastframe(root):
 
     paid_check = Checkbutton(last_fram, text="Paid", variable=paid,bg="white",font="arial 12 bold")
     paid_check.place(x=260,y=40)
+# ---------------------------------------------------------
 
 
-    subtotal_entry = Entry(last_fram,text="",width=18,relief=SOLID)
+    subtotal_label = Label(last_fram,text='Sub Toatal',bg="white",font="arial 10 bold")
+    subtotal_label.place(x=810,y=-1)
+
+    subtotal_entry = Entry(last_fram,text="",width=18,relief=SOLID,bg="skyblue")
     subtotal_entry.place(x=937,y=-1)
 
+    igst_label = Label(last_fram,text='IGST.................%',bg="white",font="arial 10 bold")
+    igst_label.place(x=810,y=17)
 
+    igst_entry = Entry(last_fram,text="",width=18,relief=SOLID)
+    igst_entry.place(x=937,y=17)
+
+    cgst_label = Label(last_fram,text='CGST...............%',bg="white",font="arial 10 bold")
+    cgst_label.place(x=810,y=35)
+
+
+    cgst_entry = Entry(last_fram,text="",width=18,relief=SOLID)
+    cgst_entry.place(x=937,y=34)
+
+    sgst_label = Label(last_fram,text='SGST...............%',bg="white",font="arial 10 bold")
+    sgst_label.place(x=810,y=53)
+
+
+    sgst_entry = Entry(last_fram,text="",width=18,relief=SOLID)
+    sgst_entry.place(x=937,y=51)
+    
+    grand_total_label = Label(last_fram,text='Grand Total',bg="white",font="arial 10 bold")
+    grand_total_label.place(x=810,y=71)
+    
+    grand_total_entry = Entry(last_fram,text="",width=18,relief=SOLID,bg="skyblue")
+    grand_total_entry.place(x=937,y=69)
 
 
 
